@@ -1,0 +1,208 @@
+:root {
+    --primary-color: #0a0a0a;
+    --accent-color: #937341;
+    --text-color: #ffffff;
+    --overlay-color: rgba(10, 10, 10, 0.7);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    overflow: hidden;
+}
+
+.video-background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -2;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.8) 0%,
+        rgba(10, 10, 10, 0.9) 100%
+    );
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.logo {
+    font-family: 'Cormorant', serif;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    opacity: 0;
+}
+
+.logo:hover {
+    color: var(--accent-color);
+}
+
+.auth-container {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(147, 115, 65, 0.2);
+    padding: 2rem; /* Reduced padding */
+    border-radius: 8px;
+    width: 100%;
+    max-width: 350px; /* Smaller max-width for the form */
+    opacity: 1;
+    
+}
+
+h1 {
+    font-family: 'Cormorant', serif;
+    font-weight: 300;
+    letter-spacing: 4px; /* Reduced letter-spacing */
+    text-align: center;
+    margin-bottom: 1.5rem; /* Reduced margin */
+    color: var(--text-color);
+    font-size: 1.6rem; /* Smaller font-size */
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Reduced gap between form elements */
+}
+
+.form-group {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem; /* Reduced padding */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(147, 115, 65, 0.3);
+    color: var(--text-color);
+    font-size: 0.85rem; /* Smaller font-size */
+    letter-spacing: 0.5px; /* Reduced letter-spacing */
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-submit {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    padding: 0.8rem; /* Reduced padding */
+    font-size: 0.85rem; /* Smaller font-size */
+    letter-spacing: 2px; /* Reduced letter-spacing */
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.auth-link {
+    text-align: center;
+    font-size: 0.8rem; /* Smaller font-size */
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.auth-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    font-size: 0.9rem;
+    transform: translateX(200%);
+    transition: transform 0.3s ease;
+}
+
+.alert.show {
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+}
+#alert {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    background: rgba(220, 53, 69, 0.9); /* Default (error) */
+    color: white;
+    font-size: 0.9rem;
+    transform: translateX(200%);
+    transition: transform 0.3s ease;
+}
+
+#alert.success {
+    background: rgba(40, 167, 69, 0.9); /* Success color */
+}
+
+#alert.error {
+    background: rgba(220, 53, 69, 0.9); /* Error color */
+}
+
+#alert.show {
+    transform: translateX(0);
+}

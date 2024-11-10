@@ -1,0 +1,179 @@
+:root {
+    --primary-color: #0a0a0a;
+    --accent-color: #937341;
+    --text-color: #ffffff;
+    --overlay-color: rgba(10, 10, 10, 0.7);
+    --border-color: rgba(147, 115, 65, 0.3);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('/img/don-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: cover;
+    font-weight: 200;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+.navbar {
+    background: transparent !important;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 2rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95) !important;
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-family: 'Cormorant', serif;
+    color: var(--text-color) !important;
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-size: 0.8rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+main {
+    padding: 8rem 0;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, 
+        rgba(10, 10, 10, 0.3) 0%,
+        rgba(10, 10, 10, 0.5) 50%,
+        rgba(10, 10, 10, 0.8) 100%
+    );
+    display: grid;
+    justify-content: center;
+}
+
+.donation-container {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--border-color);
+    padding: 3rem;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+h2 {
+    font-family: 'Cormorant', serif;
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+p {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-weight: 200;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+.elegant-divider {
+    width: 50px;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 2rem auto;
+}
+
+.premium-features {
+    margin: 2rem 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.premium-features li {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+#paypal-button-container {
+    max-width: 300px;
+    margin: 2rem auto;
+}
+
+.navbar-nav{
+    display: flex;
+    width: 65vw;
+    justify-content: center;
+}
+
+#result-message {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.dropdown-menu {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-item {
+    color: var(--text-color);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    padding: 0.8rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+        letter-spacing: 5px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .donation-container {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+}
+

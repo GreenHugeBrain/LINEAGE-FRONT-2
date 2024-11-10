@@ -1,0 +1,213 @@
+:root {
+    --primary-color: #0a0a0a;
+    --accent-color: #937341;
+    --text-color: #ffffff;
+    --overlay-color: rgba(10, 10, 10, 0.7);
+    --card-bg: rgba(20, 20, 20, 0.95);
+    --border-color: rgba(147, 115, 65, 0.3);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('/img/ab-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+.navbar {
+    background: transparent !important;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 2rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95) !important;
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+}
+
+/* .navbar-collapse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+} */
+
+.navbar-brand {
+    font-family: 'Cormorant', serif;
+    color: var(--text-color) !important;
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-size: 0.8rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.server-info {
+    max-width: 1000px;
+    margin: 8rem auto 3rem;
+    padding: 3rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-family: 'Cormorant', serif;
+    font-size: 3rem;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+}
+
+.info-section {
+    margin-bottom: 3rem;
+}
+
+.navbar-nav{
+    display: flex;
+    width: 65vw;
+    justify-content: center;
+}
+
+.info-section h2 {
+    font-family: 'Cormorant', serif;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.info-label {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.info-value {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.elegant-divider {
+    width: 80px;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 2rem auto;
+    position: relative;
+}
+
+.elegant-divider::before,
+.elegant-divider::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    top: -2.5px;
+}
+
+.elegant-divider::before {
+    left: -3px;
+}
+
+.elegant-divider::after {
+    right: -3px;
+}
+
+.dropdown-menu {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-item {
+    color: var(--text-color);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    padding: 0.8rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .server-info {
+        margin-top: 6rem;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.4rem;
+        letter-spacing: 5px;
+    }
+}
+
+header{
+    height: 200px;
+
+}

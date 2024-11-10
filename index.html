@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINEAGE II</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600&family=Montserrat:wght@200;300;400&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scrollbar.css">
+
+
+</head>
+
+<body><header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">LINEAGE-2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html" id="nav-home"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html" id="nav-news"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="donate.html" id="nav-donate"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutserver.html" id="nav-about-server"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html" id="nav-login"></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                id="nav-language" aria-expanded="false">language</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')"><img src="img/english.webp" alt="" width="20px"></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('ka')"><img src="img/georgian.png" width="20px" alt=""></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('ru')"><img src="img/russian.png" width="20px" alt=""></a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <video class="video-background" autoplay="" class="header__video-player" loop="" muted="">
+                <source src="https://predator.ge/videos/predator.webm" type="video/webm">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title" id="joinus">EMBRACE DESTINY</h1>
+                <p class="hero-subtitle">ENTER THE WORLD OF LEGENDS</p>
+                <div>
+                    <a href="#" class="btn btn-primary" id="download">DOWNLOAD</a>
+                    <a href="register.html" class="btn btn-outline" id="register">REGISTER</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Streams Section -->
+        <section class="streams-section">
+            <div class="container mt-5 text-center">
+                <h2 id="lives">LIVE STREAMS</h2>
+                <div class="row" id="streams-container">
+                    <!-- Example stream cards -->
+
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            
+        </section>
+    </main>
+
+
+    <script src="js/streams.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        let currentLanguage = 'en';
+
+        function changeLanguage(language) {
+            currentLanguage = language;
+            fetch('jsons/index.json')
+                .then(response => response.json())
+                .then(data => {
+                    updateLanguage(data[currentLanguage]);
+                });
+        }
+
+        function updateLanguage(langData) {
+            document.getElementById('nav-home').textContent = langData.navbar.home;
+            document.getElementById('nav-news').textContent = langData.navbar.news;
+            document.getElementById('nav-donate').textContent = langData.navbar.donate;
+            document.getElementById('nav-about-server').textContent = langData.navbar.about_server;
+            document.getElementById('nav-login').textContent = langData.navbar.login;
+            document.getElementById('joinus').textContent = langData.joinus;
+            document.getElementById('download').textContent = langData.download;
+            const logout = document.getElementById('logout');
+            if (logout) logout.textContent = langData.navbar.logout;
+            document.querySelector('.hero-subtitle').textContent = langData.maintext;
+            document.getElementById('lives').textContent = langData.livestreams;
+            
+            document.getElementById('register').textContent = langData.register;
+            document.getElementById('nav-language').textContent = langData.navbar.language;
+        }
+
+        changeLanguage(currentLanguage);    
+    </script>
+</body>
+
+</html>

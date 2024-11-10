@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINEAGE II - Donate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/donate.css">
+    <link rel="stylesheet" href="css/scrollbar.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">LINEAGE-2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html" id="nav-home"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html" id="nav-news"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="donate.html" id="nav-donate"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutserver.html" id="nav-about-server"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html" id="nav-login"></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                id="nav-language" aria-expanded="false">Language</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')"><img src="img/english.webp" alt="" width="20px"></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('ka')"><img src="img/georgian.png" width="20px" alt=""></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('ru')"><img src="img/russian.png" width="20px" alt=""></a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+        <div class="donation-container">
+            <h2 id="premium-access"></h2>
+            <div class="elegant-divider"></div>
+            <p id="elevate-journey"></p>
+            <ul class="premium-features">
+                <li id="feature1"></li>
+                <li id="feature2"></li>
+                <li id="feature3"></li>
+                <li id="feature4"></li>
+            </ul>
+            <div id="paypal-button-container"></div>
+            <div id="result-message"></div>
+        </div>
+    </main>
+    
+    <script src="js/main.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AWTo6OVCoXg__rr1h7nu1XQYn8eG-Xns3l-PTJ8N5E-VTGjl62Nizac1kPN5yDa9Lce6p9zzvGxAP-Il&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"></script>
+    <script src="js/payment.js"></script>
+    <script>
+        let currentLanguage = 'en';
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function changeLanguage(language) {
+            currentLanguage = language;
+            fetch('jsons/donate.json')
+                .then(response => response.json())
+                .then(data => {
+                    updateLanguage(data[currentLanguage]);
+                });
+        }
+
+        function updateLanguage(langData) {
+            const navHome = document.getElementById('nav-home');
+            if (navHome) navHome.textContent = langData.navbar.home;
+
+            const navNews = document.getElementById('nav-news');
+            if (navNews) navNews.textContent = langData.navbar.news;
+
+            const navDonate = document.getElementById('nav-donate');
+            if (navDonate) navDonate.textContent = langData.navbar.donate;
+
+            const navAboutServer = document.getElementById('nav-about-server');
+            if (navAboutServer) navAboutServer.textContent = langData.navbar.about_server;
+
+            const navLogin = document.getElementById('nav-login');
+            if (navLogin) navLogin.textContent = langData.navbar.login;
+
+            const logout = document.getElementById('logout');
+            if (logout) logout.textContent = langData.navbar.logout;
+
+            const navLanguage = document.getElementById('nav-language');
+            if (navLanguage) navLanguage.textContent = langData.navbar.language;
+
+            const premiumAccess = document.getElementById('premium-access');
+            if (premiumAccess) premiumAccess.textContent = langData.premium_access;
+
+            const elevateJourney = document.getElementById('elevate-journey');
+            if (elevateJourney) elevateJourney.textContent = langData.elevate_journey;
+
+            const feature1 = document.getElementById('feature1');
+            if (feature1) feature1.textContent = langData.features[0];
+
+            const feature2 = document.getElementById('feature2');
+            if (feature2) feature2.textContent = langData.features[1];
+
+            const feature3 = document.getElementById('feature3');
+            if (feature3) feature3.textContent = langData.features[2];
+
+            const feature4 = document.getElementById('feature4');
+            if (feature4) feature4.textContent = langData.features[3];
+        }
+
+
+        changeLanguage(currentLanguage);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+    "en": {
+      "navbar": {
+        "home": "Home",
+        "news": "News",
+        "donate": "Donation",
+        "about_server": "About Server",
+        "login": "Login",
+        "logout": "Logout",
+        "language": "Language"
+      },
+      "latest_news": "Latest News",
+      "error_message": "Error loading news. Please try again later."
+    },
+    "ka": {
+      "navbar": {
+        "home": "მთავარი",
+        "news": "სიახლეები",
+        "donate": "დონაცია",
+        "about_server": "სერვერის შესახებ",
+        "login": "შესვლა",
+        "logout": "გასვლა",
+        "language": "ენა"
+      },
+      "latest_news": "უახლესი სიახლეები",
+      "error_message": "შეცდომა სიახლეების ჩატვირთვისას. გთხოვთ, სცადოთ მოგვიანებით."
+    },
+    "ru": {
+      "navbar": {
+        "home": "Главная",
+        "news": "Новости",
+        "donate": "Пожертвования",
+        "about_server": "О сервере",
+        "login": "Войти",
+        "logout": "Выйти",
+        "language": "Язык"
+      },
+      "latest_news": "Последние новости",
+      "error_message": "Ошибка загрузки новостей. Пожалуйста, попробуйте позже."
+    }
+  }
+  

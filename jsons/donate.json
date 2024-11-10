@@ -1,0 +1,69 @@
+{
+    "en": {
+      "navbar": {
+        "home": "Home",
+        "news": "News",
+        "donate": "Donation",
+        "about_server": "About Server",
+        "login": "Login",
+        "language": "Language",
+        "english": "English",
+        "logout": "Logout",
+        "georgian": "Georgian",
+        "russian": "Russian"
+      },
+      "premium_access": "Premium Access",
+      "elevate_journey": "Elevate your journey with exclusive benefits",
+      "features": [
+        "Enhanced Character Customization",
+        "Exclusive Equipment Sets",
+        "Priority Server Access",
+        "Premium Support Service"
+      ]
+    },
+    "ka": {
+      "navbar": {
+        "home": "მთავარი",
+        "news": "ახალი ამბები",
+        "donate": "დონაცია",
+        "about_server": "სერვერის შესახებ",
+        "login": "შესვლა",
+        "language": "ენები",
+        "logout": "გასვლა",
+        "english": "ინგლისური",
+        "georgian": "ქართული",
+        "russian": "რუსული"
+      },
+      "premium_access": "პრემიუმ წვდომა",
+      "elevate_journey": "გამოიყენეთ ექსკლუზიური უპირატესობები თქვენი მოგზაურობის გასაუმჯობესებლად",
+      "features": [
+        "გახშირებული პერსონაჟის პერსონალიზაცია",
+        "ექსკლუზიური აღჭურვილობის ნაკრებები",
+        "პრიორიტეტული სერვერის წვდომა",
+        "პრემიუმ მხარდაჭერის სერვისი"
+      ]
+    },
+    "ru": {
+      "navbar": {
+        "home": "Главная",
+        "news": "Новости",
+        "donate": "Пожертвование",
+        "about_server": "О сервере",
+        "login": "Войти",
+        "language": "Язык",
+        "logout": "Выйти",
+        "english": "Английский",
+        "georgian": "Грузинский",
+        "russian": "Русский"
+      },
+      "premium_access": "Премиум доступ",
+      "elevate_journey": "Повышайте свой путь с эксклюзивными преимуществами",
+      "features": [
+        "Улучшенная настройка персонажа",
+        "Эксклюзивные комплекты оборудования",
+        "Приоритетный доступ к серверу",
+        "Премиум служба поддержки"
+      ]
+    }
+  }
+  

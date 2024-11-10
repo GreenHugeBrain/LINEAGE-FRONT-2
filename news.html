@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINEAGE II - News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/scrollbar.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">LINEAGE-2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html" id="nav-home"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html" id="nav-news"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="donate.html" id="nav-donate"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutserver.html" id="nav-about-server"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html" id="nav-login"></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                id="nav-language" aria-expanded="false">Language</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')"><img src="img/english.webp" alt="" width="20px"></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('ka')"><img src="img/georgian.png" width="20px" alt=""></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('ru')"><img src="img/russian.png" width="20px" alt=""></a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title" id="latestnews">LATEST NEWS</h1>
+        </div>
+    </section>
+
+    <main class="news-section">
+        <div class="container">
+            <div id="newsContainer" class="row g-4">
+                <!-- News items will be appended here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        let currentLanguage = 'en';
+
+        function changeLanguage(language) {
+            currentLanguage = language;
+            fetch('jsons/news.json')
+                .then(response => response.json())
+                .then(data => {
+                    updateLanguage(data[currentLanguage]);
+                });
+        }
+
+        function updateLanguage(langData) {
+            document.getElementById('nav-home').textContent = langData.navbar.home;
+            document.getElementById('nav-news').textContent = langData.navbar.news;
+            document.getElementById('nav-donate').textContent = langData.navbar.donate;
+            document.getElementById('nav-about-server').textContent = langData.navbar.about_server;
+            document.getElementById('nav-login').textContent = langData.navbar.login;
+            document.getElementById('logout').textContent = langData.navbar.logout;
+            document.getElementById('latestnews').textContent = langData.latest_news;
+            document.getElementById('nav-language').textContent = langData.navbar.language;
+        }
+
+        // Initialize default language
+        changeLanguage(currentLanguage);
+
+        // Fetching the news from API
+        fetch('https://lineage-api.onrender.com/api/news/all')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.news && Array.isArray(data.news)) {
+                    const newsContainer = document.getElementById('newsContainer');
+                    data.news.forEach(newsItem => {
+                        const newsElement = document.createElement('div');
+                        newsElement.classList.add('col-12', 'col-md-6', 'col-lg-4', 'news-item', 'fade-in');
+
+                        newsElement.innerHTML = `
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title">${newsItem.title}</h3>
+                                    <p class="card-text">${newsItem.content}</p>
+                                </div>
+                            </div>
+                        `;
+
+                        newsContainer.appendChild(newsElement);
+                    });
+                } else {
+                    const errorMessage = document.createElement('p');
+                    errorMessage.classList.add('error-message');
+                    errorMessage.textContent = 'Error: The news data is not in the expected format.';
+                    document.getElementById('newsContainer').appendChild(errorMessage);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching news:', error);
+                const errorMessage = document.createElement('p');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'Error loading news. Please try again later.';
+                document.getElementById('newsContainer').appendChild(errorMessage);
+            });
+    </script>
+</body>
+
+</html>

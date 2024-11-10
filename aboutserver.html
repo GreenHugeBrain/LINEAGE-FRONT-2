@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINEAGE II - About Server</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/aboutserver.css">
+    <link rel="stylesheet" href="css/scrollbar.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">LINEAGE-2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html" id="nav-home"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html" id="nav-news"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="donate.html" id="nav-donate"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutserver.html" id="nav-about-server"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html" id="nav-login"></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                id="nav-language" aria-expanded="false">Language</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')"><img src="img/english.webp" alt="" width="20px"></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('ka')"><img src="img/georgian.png" width="20px" alt=""></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('ru')"><img src="img/russian.png" width="20px" alt=""></a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="server-info">
+            <h1>ABOUT SERVER</h1>
+            <div class="elegant-divider"></div>
+
+            <div class="info-section">
+                <h2>RATES</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Rate XP</div>
+                        <div class="info-value">x350</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Rate SP</div>
+                        <div class="info-value">x350</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Rate Drop Adena</div>
+                        <div class="info-value">x350</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>ENCHANT SETTINGS</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Safe Enchant</div>
+                        <div class="info-value">+4</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Max Weapon Enchant</div>
+                        <div class="info-value">+20</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Max Armor Enchant</div>
+                        <div class="info-value">+16</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Max Jewel Enchant</div>
+                        <div class="info-value">+16</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>ENCHANT SUCCESS RATES</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Normal Scroll</div>
+                        <div class="info-value">55% (Max Enchant)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Blessed Scroll</div>
+                        <div class="info-value">80% (Max Enchant +12/16)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Crystal Scroll</div>
+                        <div class="info-value">100% (Max Enchant +20/16)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript code
+
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+let currentLanguage = 'en';
+
+function changeLanguage(language) {
+    currentLanguage = language;
+    fetch('jsons/aboutserver.json')
+    .then(response => response.json())
+    .then(data => {
+        updateLanguage(data[currentLanguage]);
+    });
+}
+
+function updateLanguage(langData) {
+    // Navbar
+    document.getElementById('nav-home').textContent = langData.navbar_home || 'Home';
+    document.getElementById('nav-news').textContent = langData.navbar_news || 'News';
+    document.getElementById('nav-donate').textContent = langData.navbar_donate || 'Donate';
+    document.getElementById('nav-about-server').textContent = langData.navbar_about_server || 'About Server';
+    document.getElementById('nav-login').textContent = langData.navbar_login || 'Login';
+    document.getElementById('logout').textContent = langData.logout || 'Logout';
+    document.getElementById('nav-language').textContent = langData.language || 'Language';
+    
+    // Ensure all nav items are visible
+    document.querySelectorAll('.nav-link').forEach(item => {
+        item.style.visibility = 'visible';
+    });
+
+    // Main content
+    document.querySelector('h1').textContent = langData.about_server_title || 'ABOUT SERVER';
+
+    // Rates section
+    const infoSections = document.querySelectorAll('.info-section');
+    infoSections[0].querySelector('h2').textContent = langData.rates_title || 'RATES';
+    const rateLabels = infoSections[0].querySelectorAll('.info-label');
+    rateLabels[0].textContent = langData.rate_xp || 'Rate XP';
+    rateLabels[1].textContent = langData.rate_sp || 'Rate SP';
+    rateLabels[2].textContent = langData.rate_drop_adena || 'Rate Drop Adena';
+
+    // Enchant settings section
+    infoSections[1].querySelector('h2').textContent = langData.enchant_settings_title || 'ENCHANT SETTINGS';
+    const enchantLabels = infoSections[1].querySelectorAll('.info-label');
+    enchantLabels[0].textContent = langData.safe_enchant || 'Safe Enchant';
+    enchantLabels[1].textContent = langData.max_weapon_enchant || 'Max Weapon Enchant';
+    enchantLabels[2].textContent = langData.max_armor_enchant || 'Max Armor Enchant';
+    enchantLabels[3].textContent = langData.max_jewel_enchant || 'Max Jewel Enchant';
+
+    // Enchant success rates section
+    infoSections[2].querySelector('h2').textContent = langData.enchant_success_rates_title || 'ENCHANT SUCCESS RATES';
+    const successRateLabels = infoSections[2].querySelectorAll('.info-label');
+    successRateLabels[0].textContent = langData.normal_scroll || 'Normal Scroll';
+    successRateLabels[1].textContent = langData.blessed_scroll || 'Blessed Scroll';
+    successRateLabels[2].textContent = langData.crystal_scroll || 'Crystal Scroll';
+}
+
+// Load language on page load
+changeLanguage(currentLanguage);
+
+    </script>
+</body>
+</html>

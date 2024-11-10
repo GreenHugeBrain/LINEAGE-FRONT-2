@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #1a1a1a;
+    --accent-color: #c5a572;
+    --text-color: #ffffff;
+    --bg-color: #0a0a0a;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-weight: 200;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('/img/news-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+
+
+.navbar {
+    background: transparent !important;
+    position: fixed;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1000;
+    padding: 2rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95) !important;
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-family: 'Cormorant', serif;
+    color: var(--text-color) !important;
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+}
+
+.navbar-nav{
+    display: flex;
+    width: 65vw;
+    justify-content: center;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-size: 0.8rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 26vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: 'Cormorant', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    letter-spacing: 4px;
+}
+
+/* News Section */
+.news-section {
+    padding: 4rem 0;
+}
+
+.news-item {
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    font-family: 'Cormorant', serif;
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.card-text {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+/* Error Messages */
+#newsContainer p.error-message {
+    text-align: center;
+    font-size: 1rem;
+    color: #dc3545;
+    padding: 2rem;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background-color: rgba(10, 10, 10, 0.95);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-item {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-section {
+        height: 40vh;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        height: 30vh;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+}

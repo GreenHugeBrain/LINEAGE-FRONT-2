@@ -1,0 +1,51 @@
+{
+    "en": {
+      "navbar": {
+        "home": "Home",
+        "news": "News",
+        "donate": "Donation",
+        "about_server": "About Server",
+        "login": "Login",
+        "logout": "Logout",
+        "language": "Language"
+      },
+      "joinus": "JOIN US",
+      "maintext": "ENTER THE WORLD OF LEGENDS",
+      "download": "Download",
+      "livestreams": "LIVE STREAMS",
+      "register": "Register"
+    },
+    "ka": {
+      "navbar": {
+        "home": "მთავარი",
+        "news": "სიახლეები",
+        "donate": "დონაცია",
+        "logout": "გასვლა",
+        "about_server": "სერვერის შესახებ",
+        "login": "შესვლა",
+        "language": "ენა"
+      },
+      "joinus": "შემოგვიერთდი",
+      "download": "გადმოწერე",
+      "register": "დარეგისტრირდი",
+      "livestreams": "პირდაპირი ეთერები",
+      "maintext": "შეუერთდი ლეგენდების სამყაროს"
+    },
+    "ru": {
+      "navbar": {
+        "home": "Главная",
+        "news": "Новости",
+        "donate": "Пожертвования",
+        "logout": "Выйти",
+        "about_server": "О сервере",
+        "login": "Войти",
+        "language": "Язык"
+      },
+      "joinus": "Присоединяйтесь к нам",
+      "maintext": "ВОЙДИТЕ В МИР ЛЕГЕНД",
+      "livestreams": "Прямые трансляции",
+      "download": "Cкачать",
+      "register": "Зарегистрироваться"
+    }
+  }
+  
