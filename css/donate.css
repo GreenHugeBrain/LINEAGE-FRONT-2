@@ -11,7 +11,7 @@ body {
     color: var(--text-color);
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
-    background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('/img/don-bg.jpg');
+    background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('../img/don-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-clip: content-box;
